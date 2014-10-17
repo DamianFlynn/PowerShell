@@ -34,7 +34,7 @@ function ADD-SMARunbookRecurringSchedule {
     param (
         $RecurringInterval = 30,
         $RunbookName,
-		$ScheduleNamePrefix = "Execute Flow at ",
+		$ScheduleNamePrefix = "Execute Flow at",
         $WebServiceEndpoint
     )
 
@@ -46,7 +46,7 @@ function ADD-SMARunbookRecurringSchedule {
             $Name = "$ScheduleNamePrefix $dateString"
             Write-Output $Name
             Start-SMARunbook -Name $RunbookName -webserviceendpoint $WebServiceEndpoint -schedulename $Name
-            $StartDateStr = $StartDateUTC.AddMinutes($RecurringInterval)
+            $StartDateUTC = $StartDateUTC.AddMinutes($RecurringInterval)
         }
     }
 }
